@@ -10,6 +10,8 @@ from text_cnn import TextCNN
 from tensorflow.contrib import learn
 import csv
 
+import sys
+
 # Parameters
 # ==================================================
 
@@ -28,7 +30,8 @@ tf.flags.DEFINE_boolean("log_device_placement", False, "Log placement of ops on 
 
 
 FLAGS = tf.flags.FLAGS
-FLAGS._parse_flags()
+# FLAGS._parse_flags()
+FLAGS(sys.argv)
 print("\nParameters:")
 for attr, value in sorted(FLAGS.__flags.items()):
     print("{}={}".format(attr.upper(), value))
